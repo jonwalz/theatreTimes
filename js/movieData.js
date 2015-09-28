@@ -9,7 +9,7 @@
       });
     var d = new Date();
     var today = d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate();
-    
+
     // callback to handle the results
    function dataHandler(data) {
 
@@ -17,7 +17,7 @@
 
      $.each(data, function(index, movie) {
 
-      //  These variables create the HTML formatting to make the returned data look nice 
+      //  These variables create the HTML formatting to make the returned data look nice
       var openBlock = '<div class="card blue-grey darken-1"> \
                         <div class="card-content white-text"> \
                           <span class="card-title white-text">';
@@ -26,22 +26,22 @@
                         </div>' ;
 
       var movieBlock =   openBlock
-                         + movie.title + '</span>' 
+                         + movie.title + '</span>'
                          + '<p>' + movie.shortDescription + '</p>'
-                        
+
 
                         movieBlock += movie.showtimes[0].theatre.name;
-                        movieBlock += movie.showtimes[1].dateTime;
-      
+                        movieBlock += movie.showtimes[i].dateTime;
+
                          + closeBlock;
 
-        
-        
+
+
       $('#dataReturn').append(movieBlock);
 
      });
     }
-   
+
 
    //Loads on ready
    $(document).ready(function() {
@@ -50,7 +50,7 @@
      $('#zipSubmit').click(function(){
         event.preventDefault();
 
-       
+
      // send off the query
      $.ajax({
       url: showtimesUrl,
