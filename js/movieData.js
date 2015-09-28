@@ -28,12 +28,42 @@
       var movieBlock =   openBlock
                          + movie.title + '</span>'
                          + '<p>' + movie.shortDescription + '</p>'
+                         + '</div>'
+                         + '<div class="card-content white-text"><ul>'
+
+                      // A loop to get all theatre's names  at which a movie is playing
+                      for (var i = 0; i < movie.showtimes.length; i++) {
+                          var theatres;
+
+                        // Get the time playing
+                        var time = movie.showtimes[i].dateTime;
 
 
-                        movieBlock += movie.showtimes[0].theatre.name;
-                        movieBlock += movie.showtimes[i].dateTime;
+                        var hourTime = time;
 
-                         + closeBlock;
+                        // Concatinate results
+                        movieBlock += '<ul> <li>';
+
+                        // Check if the theatres name is the same as previous iteration
+
+
+                        while (movie.showtimes[i].theatre.name !== theatres){
+                          theatres = movie.showtimes[i].theatre.name;
+                          movieBlock += '<p>' + theatres + '</p>';
+                        };
+
+                        movieBlock += '</li>'
+                        + '<li>'
+                        + '-'
+                        + time
+                        + '</li>';
+
+                      };
+
+                        // To reference the theatre: movie.showtimes[0].theatre.name;
+
+
+                         + '</ul></div>';
 
 
 
