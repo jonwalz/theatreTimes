@@ -33,29 +33,33 @@
 
                       // A loop to get all theatre's names  at which a movie is playing
                       for (var i = 0; i < movie.showtimes.length; i++) {
-                          var theatres;
+                        var theatres;
 
                         // Get the time playing
                         var time = movie.showtimes[i].dateTime;
+                        // Convert to readable hour time
+                        var hourTime = time.slice(time.indexOf("T") +1);
 
+                        // Separate the first two and last two characters of the time string
+                        var firstTwo = parseInt(time.substr(0, 2));
+                        var lastTwo = time.substr(2, 4);
 
-                        var hourTime = time;
-
+                        if (firstTwo > 12){
+                          console.log(firstTwo);
+                        };
                         // Concatinate results
-                        movieBlock += '<ul> <li>';
+                        movieBlock += '<ul><li>';
 
                         // Check if the theatres name is the same as previous iteration
 
-
-                        while (movie.showtimes[i].theatre.name !== theatres){
-                          theatres = movie.showtimes[i].theatre.name;
-                          movieBlock += '<p>' + theatres + '</p>';
-                        };
+                          while (movie.showtimes[i].theatre.name !== theatres){
+                            theatres = movie.showtimes[i].theatre.name;
+                            movieBlock += '<p>' + theatres + '</p>';
+                          };
 
                         movieBlock += '</li>'
                         + '<li>'
-                        + '-'
-                        + time
+                        + " " + hourTime
                         + '</li>';
 
                       };
@@ -79,6 +83,10 @@
 
      $('#zipSubmit').click(function(){
         event.preventDefault();
+        var removeNode = document.getElementById('dataReturn');
+        while (removeNode.firstChild) {
+          removeNode.removeChild(removeNode.firstChild);  
+        };
 
 
      // send off the query

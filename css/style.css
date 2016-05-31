@@ -7,20 +7,28 @@
  */
 body {
   font-family: 'Yantramanav', sans-serif;
+  font-weight: 100;
   background-color: #333333;
   letter-spacing: 1.25px;
+  width: 100%;
 }
 .header {
   text-shadow: -2px 3px 7px rgba(0, 0, 0, 0.81);
-  
+
 }
+.container {
+  width: 100%;}
 #backTop {
   background: url('../img/highres.jpg');
   background-size: cover;
-  min-height: 300px;       
+  min-height: 300px;
 }
 #zipSubmit {
-  margin-bottom: 10px;  
+  margin-bottom: 10px;
+}
+#dataReturn ul {
+  list-style-type: none;
+  text-align: right;
 }
 nav ul a,
 nav .brand-logo {
