@@ -1,5 +1,7 @@
 // construct the url with parameter values
 
+    // Yeah, I know, the api key shouldn't just be sitting here for the world to see
+    // But it's a free service and doesn't really expose any of my personal information
     var apikey = "xdtvzz798zd9jca2sanfjd8d";
     var baseUrl = "https://data.tmsapi.com/v1.1";
     var showtimesUrl = baseUrl + '/movies/showings';
